@@ -55,6 +55,7 @@ contract IRE is ERC20, ERC20Burnable, Pausable, AccessControl {
         public
         onlyRole(DEFAULT_ADMIN_ROLE)
     {
+        require(addresses.length < 11, "Only 10 addresses are allowed.");
         for (uint256 i; i < addresses.length; ++i) {
             _isBlacklisted[addresses[i]] = true;
             emit addToBlackListEvent(addresses[i]);
@@ -65,6 +66,7 @@ contract IRE is ERC20, ERC20Burnable, Pausable, AccessControl {
         public
         onlyRole(DEFAULT_ADMIN_ROLE)
     {
+        require(addresses.length < 11, "Only 10 addresses are allowed.");
         for (uint256 i; i < addresses.length; ++i) {
             _isBlacklisted[addresses[i]] = false;
         }
